@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeeshan Portfolio</title>
+
+<!-- AOS Animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: #0f172a;
+    color: white;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: #020617;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+/* Sections */
+section {
+    padding: 60px;
+}
+
+/* Skills */
+#skills {
+    padding: 100px 10%;
+    background: #020617;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+/* Grid */
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* Skill item */
+.skill span {
+    font-weight: 500;
+}
+
+/* Bar */
+.bar {
+    background: #1e293b;
+    height: 10px;
+    border-radius: 10px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+/* Fill animation base */
+.fill {
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #38bdf8, #9333ea);
+    transition: width 2s ease;
+}
+
+/* Skill Levels */
+.python { width: 85%; }
+.dataviz { width: 75%; }
+.data { width: 80%; }
+.sql { width: 70%; }
+.web { width: 65%; }
+.scraping { width: 75%; }
+.automation { width: 80%; }
+/* Projects */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Contact */
+.contact {
+    text-align: center;
+}
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Image Box */
+.image-box {
+    width: 280px;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Glow border */
+.image-box::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, #38bdf8, #9333ea, #38bdf8);
+    z-index: -1;
+    border-radius: 20px;
+    animation: glow 5s linear infinite;
+}
+
+/* Image */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Glow animation */
+@keyframes glow {
+    0% {filter: hue-rotate(0deg);}
+    100% {filter: hue-rotate(360deg);}
+}
+
+/* Text */
+.hero-text h1 {
+    font-size: 40px;
+}
+
+.hero-text p {
+    color: #94a3b8;
+}
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+/* ================================================= */
+#about {
+    padding: 100px 10%;
+    background: #020617;
+}
+
+.about-container {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* TEXT SIDE */
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Highlight important words */
+.about-text span {
+    color: #38bdf8;
+    font-weight: 500;
+}
+
+.highlight {
+    font-size: 18px;
+    color: white;
+}
+
+/* CARDS SIDE */
+.about-cards {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: rgba(30,41,59,0.6);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Hover animation */
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    border: 1px solid #38bdf8;
+}
+
+/* Headings */
+.card h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+
+}
+/* =================================================================== */
+#projects {
+    padding: 100px 10%;
+    background: #020617;
+}
+
+/* Grid */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Card */
+.project-card {
+    text-decoration: none;
+    color: white;
+    background: rgba(30,41,59,0.6);
+    border-radius: 20px;
+    padding: 25px;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Glow effect */
+.project-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(56,189,248,0.2), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* Hover animation */
+.project-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    border: 1px solid #38bdf8;
+}
+
+/* Shine effect */
+.project-card:hover::before {
+    opacity: 1;
+}
+
+/* Text */
+.project-content h3 {
+    margin-bottom: 10px;
+    color: #38bdf8;
+}
+
+.project-content p {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Tech badge */
+.tech {
+    font-size: 12px;
+    background: #1e293b;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+/* ====================================================== */
+#contact {
+    padding: 100px 10%;
+    background: linear-gradient(to bottom, #020617, #020617);
+    text-align: center;
+}
+
+/* Grid */
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Card */
+.contact-card {
+    text-decoration: none;
+    color: white;
+    background: rgba(30,41,59,0.5);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Icon */
+.contact-card i {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #38bdf8;
+}
+
+/* Glow effect */
+.contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(56,189,248,0.3), transparent);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+/* Hover */
+.contact-card:hover {
+    transform: translateY(-12px) scale(1.04);
+    border: 1px solid #38bdf8;
+}
+
+/* Shine animation */
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+/* Text */
+.contact-card h3 {
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    font-size: 14px;
+    color: #94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Zeeshan</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<!-- <div class="hero">
+    <div data-aos="fade-up">
+        <h1>Hi, I'm <span>Zeeshan Ahmed</span></h1>
+        <p>Python Developer | SQL Learner</p>
+    </div>
+</div> -->
+<div class="hero">
+    <div class="hero-content">
+
+        <div class="image-box">
+            <img src="my.png" alt="Zeeshan">
+        </div>
+
+        <div class="hero-text">
+            <h1>Zeeshan Ahmed</h1>
+            <h3 class="typing"></h3>
+            <p>Python Developer | Problem Solver</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- About -->
+<section id="about">
+    <div class="about-container">
+
+        <!-- LEFT SIDE -->
+        <div class="about-text" data-aos="fade-right">
+            <h2>About Me</h2>
+
+            <p class="highlight">
+                I am a motivated <span>BS Artificial Intelligence</span> student at 
+                <span>Dawood University of Engineering & Technology, Karachi</span>, 
+                and a proud <span>scholarship awardee</span>.
+            </p>
+
+            <p>
+                I have a strong foundation in <span>Python programming</span>, 
+                <span>data visualization</span>, and <span>GUI development</span>, 
+                and I am passionate about building practical, real-world solutions.
+            </p>
+
+            <p>
+                Currently pursuing my degree (2024–2028), I am continuously improving 
+                my skills through projects and problem-solving platforms. My goal is 
+                to grow as a skilled AI developer and contribute to innovative technologies 
+                that solve real-world problems.
+            </p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="about-cards" data-aos="fade-left">
+
+            <div class="card">
+                <h3>🎓 Degree</h3>
+                <p>BS Artificial Intelligence</p>
+            </div>
+
+            <div class="card">
+                <h3>🏫 University</h3>
+                <p>Dawood University, Karachi</p>
+            </div>
+
+            <div class="card">
+                <h3>🏆 Achievement</h3>
+                <p>Scholarship Awardee</p>
+            </div>
+
+            <div class="card">
+                <h3>📅 Duration</h3>
+                <p>2024 – 2028</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Skills -->
+<section id="skills">
+    <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+
+    <div class="skills-container">
+
+        <div class="skill" data-aos="fade-right">
+            <span>Python Programming</span>
+            <div class="bar"><div class="fill python"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-right">
+            <span>Data Visualization</span>
+            <div class="bar"><div class="fill dataviz"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-right">
+            <span>Data Manipulation</span>
+            <div class="bar"><div class="fill data"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-left">
+            <span>SQL</span>
+            <div class="bar"><div class="fill sql"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-left">
+            <span>Web Development</span>
+            <div class="bar"><div class="fill web"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-left">
+            <span>Web Scraping</span>
+            <div class="bar"><div class="fill scraping"></div></div>
+        </div>
+
+        <div class="skill" data-aos="fade-up">
+            <span>Python Automation</span>
+            <div class="bar"><div class="fill automation"></div></div>
+        </div>
+
+    </div>
+</section>
+<!-- Projects -->
+<section id="projects">
+    <h2 class="section-title" data-aos="fade-up">My Projects</h2>
+
+    <div class="projects-container">
+
+        <!-- Project 1 -->
+        <a href="https://github.com/ZeeshanAhmed215/Academy-Management-System-PITP-" target="_blank" class="project-card" data-aos="zoom-in">
+            <div class="project-content">
+                <h3>Academy Management System</h3>
+                <p>Developed a complete academy management system using Python and MySQL with features for managing students, records, and operations.</p>
+                <span class="tech">Python • MySQL</span>
+            </div>
+        </a>
+
+        <!-- Project 2 -->
+        <a href="https://github.com/ZeeshanAhmed215/Guest-House-Management-System-Python-MySQL" target="_blank" class="project-card" data-aos="zoom-in">
+            <div class="project-content">
+                <h3>Guest House Management System</h3>
+                <p>Built a management system using Python and MySQL for handling bookings, guests, and administrative operations efficiently.</p>
+                <span class="tech">Python • MySQL</span>
+            </div>
+        </a>
+
+    </div>
+</section>
+<!-- Contact -->
+<section id="contact">
+    <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+
+    <div class="contact-container">
+
+        <a href="mailto:codewithzees@gmail.com" class="contact-card" data-aos="zoom-in">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>codewithzees@gmail.com</p>
+        </a>
+
+        <a href="https://github.com/ZeeshanAhmed215" target="_blank" class="contact-card" data-aos="zoom-in">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <p>View My Code</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/zeeshanahmednoonari/" target="_blank" class="contact-card" data-aos="zoom-in">
+            <i class="fab fa-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>Connect Professionally</p>
+        </a>
+
+        <a href="https://leetcode.com/u/Zeeshan_Ahmed_Noonari/" target="_blank" class="contact-card" data-aos="zoom-in">
+            <i class="fas fa-code"></i>
+            <h3>LeetCode</h3>
+            <p>Problem Solving Profile</p>
+        </a>
+
+        <a href="https://www.hackerrank.com/profile/zahmednoonari" target="_blank" class="contact-card" data-aos="zoom-in">
+            <i class="fab fa-hackerrank"></i>
+            <h3>HackerRank</h3>
+            <p>Achievements & Badges</p>
+        </a>
+
+    </div>
+    <footer style="text-align:center; padding:20px; color:#94a3b8;">
+        © 2026 Zeeshan Ahmed | Built with Passion 🚀
+    </footer>
+</section>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+
+</body>
+</html>0
+
+<script>
+    const text = ["Python Developer", "SQL Learner", "Problem Solver"];
+    let i = 0, j = 0, current = "", isDeleting = false;
+    
+    function type() {
+        current = text[i];
+        
+        if (isDeleting) {
+            j--;
+        } else {
+            j++;
+        }
+    
+        document.querySelector(".typing").innerHTML = current.substring(0, j);
+    
+        if (!isDeleting && j === current.length) {
+            isDeleting = true;
+            setTimeout(type, 1000);
+        } else if (isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % text.length;
+            setTimeout(type, 300);
+        } else {
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+    }
+    
+    type();
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+    </script>
