@@ -1,640 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zeeshan Portfolio</title>
-
-<!-- AOS Animation -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-<style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI';
-    background: #0f172a;
-    color: white;
-}
-
-/* Navbar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 50px;
-    background: #020617;
-    position: sticky;
-    top: 0;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-/* Hero */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 50px;
-}
-
-.hero span {
-    color: #38bdf8;
-}
-
-/* Sections */
-section {
-    padding: 60px;
-}
-
-/* Skills */
-#skills {
-    padding: 100px 10%;
-    background: #020617;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 50px;
-}
-
-/* Grid */
-.skills-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-/* Skill item */
-.skill span {
-    font-weight: 500;
-}
-
-/* Bar */
-.bar {
-    background: #1e293b;
-    height: 10px;
-    border-radius: 10px;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-/* Fill animation base */
-.fill {
-    height: 100%;
-    width: 0;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #38bdf8, #9333ea);
-    transition: width 2s ease;
-}
-
-/* Skill Levels */
-.python { width: 85%; }
-.dataviz { width: 75%; }
-.data { width: 80%; }
-.sql { width: 70%; }
-.web { width: 65%; }
-.scraping { width: 75%; }
-.automation { width: 80%; }
-/* Projects */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-}
-
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-/* Contact */
-.contact {
-    text-align: center;
-}
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-/* Image Box */
-.image-box {
-    width: 280px;
-    height: 380px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-/* Glow border */
-.image-box::before {
-    content: "";
-    position: absolute;
-    inset: -3px;
-    background: linear-gradient(45deg, #38bdf8, #9333ea, #38bdf8);
-    z-index: -1;
-    border-radius: 20px;
-    animation: glow 5s linear infinite;
-}
-
-/* Image */
-.image-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Glow animation */
-@keyframes glow {
-    0% {filter: hue-rotate(0deg);}
-    100% {filter: hue-rotate(360deg);}
-}
-
-/* Text */
-.hero-text h1 {
-    font-size: 40px;
-}
-
-.hero-text p {
-    color: #94a3b8;
-}
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
-}
-/* ================================================= */
-#about {
-    padding: 100px 10%;
-    background: #020617;
-}
-
-.about-container {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-/* TEXT SIDE */
-.about-text {
-    flex: 1;
-}
-
-.about-text h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    color: #94a3b8;
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-/* Highlight important words */
-.about-text span {
-    color: #38bdf8;
-    font-weight: 500;
-}
-
-.highlight {
-    font-size: 18px;
-    color: white;
-}
-
-/* CARDS SIDE */
-.about-cards {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background: rgba(30,41,59,0.6);
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: 0.3s;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Hover animation */
-.card:hover {
-    transform: translateY(-10px) scale(1.03);
-    border: 1px solid #38bdf8;
-}
-
-/* Headings */
-.card h3 {
-    color: #38bdf8;
-    margin-bottom: 10px;
-
-}
-/* =================================================================== */
-#projects {
-    padding: 100px 10%;
-    background: #020617;
-}
-
-/* Grid */
-.projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-/* Card */
-.project-card {
-    text-decoration: none;
-    color: white;
-    background: rgba(30,41,59,0.6);
-    border-radius: 20px;
-    padding: 25px;
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* Glow effect */
-.project-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(56,189,248,0.2), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-/* Hover animation */
-.project-card:hover {
-    transform: translateY(-12px) scale(1.03);
-    border: 1px solid #38bdf8;
-}
-
-/* Shine effect */
-.project-card:hover::before {
-    opacity: 1;
-}
-
-/* Text */
-.project-content h3 {
-    margin-bottom: 10px;
-    color: #38bdf8;
-}
-
-.project-content p {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-/* Tech badge */
-.tech {
-    font-size: 12px;
-    background: #1e293b;
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: inline-block;
-}
-/* ====================================================== */
-#contact {
-    padding: 100px 10%;
-    background: linear-gradient(to bottom, #020617, #020617);
-    text-align: center;
-}
-
-/* Grid */
-.contact-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
-}
-
-/* Card */
-.contact-card {
-    text-decoration: none;
-    color: white;
-    background: rgba(30,41,59,0.5);
-    padding: 30px;
-    border-radius: 20px;
-    transition: 0.4s;
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.05);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Icon */
-.contact-card i {
-    font-size: 30px;
-    margin-bottom: 15px;
-    color: #38bdf8;
-}
-
-/* Glow effect */
-.contact-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(56,189,248,0.3), transparent);
-    opacity: 0;
-    transition: 0.4s;
-}
-
-/* Hover */
-.contact-card:hover {
-    transform: translateY(-12px) scale(1.04);
-    border: 1px solid #38bdf8;
-}
-
-/* Shine animation */
-.contact-card:hover::before {
-    opacity: 1;
-}
-
-/* Text */
-.contact-card h3 {
-    margin-bottom: 10px;
-}
-
-.contact-card p {
-    font-size: 14px;
-    color: #94a3b8;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zeeshan Ahmed Noonari — BS Artificial Intelligence student and AI/ML developer at DUET Karachi.">
+    <meta name="theme-color" content="#090b10">
+    <title>Zeeshan Ahmed Noonari | AI/ML Developer</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
-    <h2>Zeeshan</h2>
-    <div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-
-<!-- Hero -->
-<!-- <div class="hero">
-    <div data-aos="fade-up">
-        <h1>Hi, I'm <span>Zeeshan Ahmed</span></h1>
-        <p>Python Developer | SQL Learner</p>
-    </div>
-</div> -->
-<div class="hero">
-    <div class="hero-content">
-
-        <div class="image-box">
-            <img src="my.png" alt="Zeeshan">
-        </div>
-
-        <div class="hero-text">
-            <h1>Zeeshan Ahmed</h1>
-            <h3 class="typing"></h3>
-            <p>Python Developer | Problem Solver</p>
-        </div>
-
-    </div>
-</div>
-
-<!-- About -->
-<section id="about">
-    <div class="about-container">
-
-        <!-- LEFT SIDE -->
-        <div class="about-text" data-aos="fade-right">
-            <h2>About Me</h2>
-
-            <p class="highlight">
-                I am a motivated <span>BS Artificial Intelligence</span> student at 
-                <span>Dawood University of Engineering & Technology, Karachi</span>, 
-                and a proud <span>scholarship awardee</span>.
-            </p>
-
-            <p>
-                I have a strong foundation in <span>Python programming</span>, 
-                <span>data visualization</span>, and <span>GUI development</span>, 
-                and I am passionate about building practical, real-world solutions.
-            </p>
-
-            <p>
-                Currently pursuing my degree (2024–2028), I am continuously improving 
-                my skills through projects and problem-solving platforms. My goal is 
-                to grow as a skilled AI developer and contribute to innovative technologies 
-                that solve real-world problems.
-            </p>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="about-cards" data-aos="fade-left">
-
-            <div class="card">
-                <h3>🎓 Degree</h3>
-                <p>BS Artificial Intelligence</p>
+    <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-inner">
+            <a class="brand" href="#home" aria-label="Zeeshan Ahmed Noonari, home">
+                <span class="brand-dot"></span>
+                <span>Zeeshan<span class="brand-accent">.</span></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#profiles">Profiles</a>
+                <a href="#contact">Contact</a>
             </div>
+        </div>
+    </nav>
 
-            <div class="card">
-                <h3>🏫 University</h3>
-                <p>Dawood University, Karachi</p>
+    <main id="main">
+        <section class="hero" id="home">
+            <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+            <div class="hero-inner">
+                <div class="hero-copy">
+                    <div class="greeting"><span class="greeting-dot"></span>Hello, I'm</div>
+                    <h1>Zeeshan Ahmed<br><span>Noonari</span></h1>
+                    <div class="typing-wrap"><span id="typingText"></span><span class="cursor"></span></div>
+                    <p class="hero-bio">
+                        BS Artificial Intelligence student at DUET Karachi, building thoughtful machine
+                        learning systems, neural networks, and practical Python solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">View Projects <span>↓</span></a>
+                        <a class="button button-secondary" href="#contact">Contact Me <span>↗</span></a>
+                    </div>
+                    <div class="social-bar" aria-label="Social profiles">
+                        <a href="https://github.com/ZeeshanAhmed215" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.78-.24.78-.54v-2.1c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.54-.29-5.21-1.27-5.21-5.65 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.13 1.17A10.9 10.9 0 0 1 12 6.32c.97 0 1.93.13 2.84.38 2.17-1.48 3.12-1.17 3.12-1.17.63 1.58.24 2.74.12 3.03.73.8 1.17 1.82 1.17 3.07 0 4.39-2.68 5.36-5.23 5.64.41.36.77 1.06.77 2.14v3.17c0 .3.2.65.79.54A11.3 11.3 0 0 0 12 .7Z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zeeshanahmednoonari/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.54V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/></svg>
+                        </a>
+                        <a href="https://leetcode.com/u/Zeeshan_Ahmed_Noonari/" target="_blank" rel="noopener" aria-label="LeetCode">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.483 0a1.37 1.37 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .079 2.837 5.56 5.56 0 0 0 1.251 2.062 5.544 5.544 0 0 0 2.106 1.367 5.5 5.5 0 0 0 2.48.338 5.55 5.55 0 0 0 2.23-.594l5.84-3.144a1.5 1.5 0 1 0-1.432-2.636l-5.838 3.143a2.55 2.55 0 0 1-3.49-1.038 2.546 2.546 0 0 1-.151-1.3 2.54 2.54 0 0 1 .647-1.39l3.827-4.097 5.406-5.79A1.37 1.37 0 0 0 13.483 0Zm4.5 7.5a1.5 1.5 0 1 0 0 3h3.5a1.5 1.5 0 1 0 0-3h-3.5Zm-1.9 5.1a1.5 1.5 0 1 0 0 3h5.4a1.5 1.5 0 1 0 0-3h-5.4Z"/></svg>
+                        </a>
+                        <a href="https://www.hackerrank.com/profile/zahmednoonari" target="_blank" rel="noopener" aria-label="HackerRank">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.13 17.32h-2.3v-3.06h-5.66v3.06H6.87V6.68h2.3v3.06h5.66V6.68h2.3v10.64Z"/><path fill="#090b10" d="M9.17 10.74h5.66v2.52H9.17z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="portrait-column">
+                    <div class="portrait-glow"></div>
+                    <div class="portrait-frame">
+                        <img src="My_images/my.png" alt="Zeeshan Ahmed Noonari">
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <h3>🏆 Achievement</h3>
-                <p>Scholarship Awardee</p>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label">01 — About</span>
+                    <h2>Designing with curiosity.<br><span>Engineering with purpose.</span></h2>
+                </div>
+                <div class="about-grid">
+                    <article class="about-copy reveal">
+                        <p class="about-lead">
+                            I am a <strong>BS Artificial Intelligence</strong> student at
+                            <strong>Dawood University of Engineering &amp; Technology, Karachi</strong>,
+                            exploring how intelligent systems can turn complex data into useful decisions.
+                        </p>
+                        <p>
+                            My work focuses on machine learning, deep learning, neural networks, Python,
+                            data science, algorithms, and computer organization. I learn by building,
+                            experimenting, and improving every implementation.
+                        </p>
+                    </article>
+                    <div class="highlight-grid reveal">
+                        <article class="highlight-card">
+                            <span class="highlight-icon">↗</span>
+                            <strong>Projects Built</strong>
+                            <p>Practical Python, data, and software applications.</p>
+                        </article>
+                        <article class="highlight-card">
+                            <span class="highlight-icon">◎</span>
+                            <strong>Problem Solver</strong>
+                            <p>Active on LeetCode and HackerRank.</p>
+                        </article>
+                        <article class="highlight-card">
+                            <span class="highlight-icon">⌁</span>
+                            <strong>Core AI Stack</strong>
+                            <p>Python, ML, DL, data science, and algorithms.</p>
+                        </article>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <h3>📅 Duration</h3>
-                <p>2024 – 2028</p>
+        <section id="skills" class="section section-tinted">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label">02 — Skills</span>
+                    <h2>The tools I use<br><span>to bring ideas to life.</span></h2>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card reveal">
+                        <div class="skill-card-head"><span class="skill-index">01</span><span class="skill-glyph">AI</span></div>
+                        <h3>AI &amp; Machine Learning</h3>
+                        <p>Building models and finding patterns in data.</p>
+                        <div class="skill-tags">
+                            <span><i class="devicon-pytorch-original colored"></i>PyTorch</span>
+                            <span><i class="devicon-tensorflow-original colored"></i>TensorFlow</span>
+                            <span><i class="devicon-scikitlearn-original colored"></i>Scikit-learn</span>
+                            <span><i class="devicon-pandas-original colored"></i>Pandas</span>
+                            <span><i class="devicon-numpy-original colored"></i>NumPy</span>
+                            <span><i class="fas fa-network-wired"></i>Neural Networks</span>
+                        </div>
+                    </article>
+                    <article class="skill-card reveal">
+                        <div class="skill-card-head"><span class="skill-index">02</span><span class="skill-glyph">&lt;/&gt;</span></div>
+                        <h3>Programming Languages</h3>
+                        <p>Writing reliable code and solving algorithmic problems.</p>
+                        <div class="skill-tags">
+                            <span><i class="devicon-python-plain colored"></i>Python</span>
+                            <span><i class="devicon-cplusplus-plain colored"></i>C++</span>
+                            <span><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                            <span><i class="devicon-mysql-original colored"></i>SQL</span>
+                            <span><i class="fas fa-diagram-project"></i>Data Structures</span>
+                            <span><i class="fas fa-code-branch"></i>Algorithms</span>
+                        </div>
+                    </article>
+                    <article class="skill-card reveal">
+                        <div class="skill-card-head"><span class="skill-index">03</span><span class="skill-glyph">⚙</span></div>
+                        <h3>Tools &amp; Frameworks</h3>
+                        <p>Developing, managing, and deploying practical projects.</p>
+                        <div class="skill-tags">
+                            <span><i class="devicon-git-plain colored"></i>Git</span>
+                            <span><i class="devicon-github-original"></i>GitHub</span>
+                            <span><i class="devicon-linux-plain"></i>Linux</span>
+                            <span><i class="devicon-vscode-plain colored"></i>VS Code</span>
+                            <span><i class="devicon-mysql-original colored"></i>MySQL</span>
+                            <span><i class="devicon-html5-plain colored"></i>HTML / CSS</span>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
 
-        </div>
-
-    </div>
-</section>
-<!-- Skills -->
-<section id="skills">
-    <h2 class="section-title" data-aos="fade-up">My Skills</h2>
-
-    <div class="skills-container">
-
-        <div class="skill" data-aos="fade-right">
-            <span>Python Programming</span>
-            <div class="bar"><div class="fill python"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-right">
-            <span>Data Visualization</span>
-            <div class="bar"><div class="fill dataviz"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-right">
-            <span>Data Manipulation</span>
-            <div class="bar"><div class="fill data"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-left">
-            <span>SQL</span>
-            <div class="bar"><div class="fill sql"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-left">
-            <span>Web Development</span>
-            <div class="bar"><div class="fill web"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-left">
-            <span>Web Scraping</span>
-            <div class="bar"><div class="fill scraping"></div></div>
-        </div>
-
-        <div class="skill" data-aos="fade-up">
-            <span>Python Automation</span>
-            <div class="bar"><div class="fill automation"></div></div>
-        </div>
-
-    </div>
-</section>
-<!-- Projects -->
-<section id="projects">
-    <h2 class="section-title" data-aos="fade-up">My Projects</h2>
-
-    <div class="projects-container">
-
-        <!-- Project 1 -->
-        <a href="https://github.com/ZeeshanAhmed215/Academy-Management-System-PITP-" target="_blank" class="project-card" data-aos="zoom-in">
-            <div class="project-content">
-                <h3>Academy Management System</h3>
-                <p>Developed a complete academy management system using Python and MySQL with features for managing students, records, and operations.</p>
-                <span class="tech">Python • MySQL</span>
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="projects-heading reveal">
+                    <div class="section-heading">
+                        <span class="section-label">03 — Projects</span>
+                        <h2>Selected work<br><span>from GitHub.</span></h2>
+                    </div>
+                    <div class="filter-tabs" role="group" aria-label="Filter projects">
+                        <button class="filter-btn active" type="button" data-filter="all">All</button>
+                        <button class="filter-btn" type="button" data-filter="ai">AI / ML</button>
+                        <button class="filter-btn" type="button" data-filter="python">Python</button>
+                        <button class="filter-btn" type="button" data-filter="web">Web</button>
+                    </div>
+                </div>
+                <div class="projects-grid" id="projectsGrid" aria-live="polite">
+                    <div class="loading-state">Loading GitHub repositories…</div>
+                </div>
             </div>
-        </a>
+        </section>
 
-        <!-- Project 2 -->
-        <a href="https://github.com/ZeeshanAhmed215/Guest-House-Management-System-Python-MySQL" target="_blank" class="project-card" data-aos="zoom-in">
-            <div class="project-content">
-                <h3>Guest House Management System</h3>
-                <p>Built a management system using Python and MySQL for handling bookings, guests, and administrative operations efficiently.</p>
-                <span class="tech">Python • MySQL</span>
+        <section id="profiles" class="section section-tinted">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <span class="section-label">04 — Profiles</span>
+                    <h2>Find me across<br><span>the developer ecosystem.</span></h2>
+                </div>
+                <div class="profiles-grid">
+                    <a class="profile-card reveal" href="https://github.com/ZeeshanAhmed215" target="_blank" rel="noopener">
+                        <span class="profile-monogram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .7a11.3 11.3 0 0 0-3.57 22c.57.1.78-.24.78-.54v-2.1c-3.18.69-3.85-1.35-3.85-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.72-1.53-2.54-.29-5.21-1.27-5.21-5.65 0-1.25.44-2.27 1.17-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.13 1.17A10.9 10.9 0 0 1 12 6.32c.97 0 1.93.13 2.84.38 2.17-1.48 3.12-1.17 3.12-1.17.63 1.58.24 2.74.12 3.03.73.8 1.17 1.82 1.17 3.07 0 4.39-2.68 5.36-5.23 5.64.41.36.77 1.06.77 2.14v3.17c0 .3.2.65.79.54A11.3 11.3 0 0 0 12 .7Z"/></svg></span><div><h3>GitHub</h3><p>Code &amp; repositories</p></div><span class="profile-arrow">↗</span>
+                    </a>
+                    <a class="profile-card reveal" href="https://www.linkedin.com/in/zeeshanahmednoonari/" target="_blank" rel="noopener">
+                        <span class="profile-monogram linkedin"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.02H3.54V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0Z"/></svg></span><div><h3>LinkedIn</h3><p>Professional profile</p></div><span class="profile-arrow">↗</span>
+                    </a>
+                    <a class="profile-card reveal" href="https://leetcode.com/u/Zeeshan_Ahmed_Noonari/" target="_blank" rel="noopener">
+                        <span class="profile-monogram leetcode"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.483 0a1.37 1.37 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .079 2.837 5.56 5.56 0 0 0 1.251 2.062 5.544 5.544 0 0 0 2.106 1.367 5.5 5.5 0 0 0 2.48.338 5.55 5.55 0 0 0 2.23-.594l5.84-3.144a1.5 1.5 0 1 0-1.432-2.636l-5.838 3.143a2.55 2.55 0 0 1-3.49-1.038 2.546 2.546 0 0 1-.151-1.3 2.54 2.54 0 0 1 .647-1.39l3.827-4.097 5.406-5.79A1.37 1.37 0 0 0 13.483 0Zm4.5 7.5a1.5 1.5 0 1 0 0 3h3.5a1.5 1.5 0 1 0 0-3h-3.5Zm-1.9 5.1a1.5 1.5 0 1 0 0 3h5.4a1.5 1.5 0 1 0 0-3h-5.4Z"/></svg></span><div><h3>LeetCode</h3><p>Algorithms &amp; practice</p></div><span class="profile-arrow">↗</span>
+                    </a>
+                    <a class="profile-card reveal" href="https://www.hackerrank.com/profile/zahmednoonari" target="_blank" rel="noopener">
+                        <span class="profile-monogram hackerrank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.13 17.32h-2.3v-3.06h-5.66v3.06H6.87V6.68h2.3v3.06h5.66V6.68h2.3v10.64Z"/><path fill="#090b10" d="M9.17 10.74h5.66v2.52H9.17z"/></svg></span><div><h3>HackerRank</h3><p>Skills &amp; challenges</p></div><span class="profile-arrow">↗</span>
+                    </a>
+                </div>
             </div>
-        </a>
+        </section>
 
-    </div>
-</section>
-<!-- Contact -->
-<section id="contact">
-    <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-panel reveal">
+                    <div class="contact-copy">
+                        <span class="section-label">05 — Contact</span>
+                        <h2>Have a project or<br><span>an opportunity?</span></h2>
+                        <p>Let’s build something useful together. I am open to AI/ML projects, internships, collaborations, and technical conversations.</p>
+                        <a class="contact-email" href="mailto:codewithzees@gmail.com">codewithzees@gmail.com <span>↗</span></a>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+                            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                        </div>
+                        <div class="field"><label for="subject">Subject</label><input id="subject" name="subject" type="text" required></div>
+                        <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+                        <button class="button button-primary" type="submit">Send Message <span>↗</span></button>
+                        <p class="form-status" id="formStatus" role="status"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <div class="contact-container">
-
-        <a href="mailto:codewithzees@gmail.com" class="contact-card" data-aos="zoom-in">
-            <i class="fas fa-envelope"></i>
-            <h3>Email</h3>
-            <p>codewithzees@gmail.com</p>
-        </a>
-
-        <a href="https://github.com/ZeeshanAhmed215" target="_blank" class="contact-card" data-aos="zoom-in">
-            <i class="fab fa-github"></i>
-            <h3>GitHub</h3>
-            <p>View My Code</p>
-        </a>
-
-        <a href="https://www.linkedin.com/in/zeeshanahmednoonari/" target="_blank" class="contact-card" data-aos="zoom-in">
-            <i class="fab fa-linkedin"></i>
-            <h3>LinkedIn</h3>
-            <p>Connect Professionally</p>
-        </a>
-
-        <a href="https://leetcode.com/u/Zeeshan_Ahmed_Noonari/" target="_blank" class="contact-card" data-aos="zoom-in">
-            <i class="fas fa-code"></i>
-            <h3>LeetCode</h3>
-            <p>Problem Solving Profile</p>
-        </a>
-
-        <a href="https://www.hackerrank.com/profile/zahmednoonari" target="_blank" class="contact-card" data-aos="zoom-in">
-            <i class="fab fa-hackerrank"></i>
-            <h3>HackerRank</h3>
-            <p>Achievements & Badges</p>
-        </a>
-
-    </div>
-    <footer style="text-align:center; padding:20px; color:#94a3b8;">
-        © 2026 Zeeshan Ahmed | Built with Passion 🚀
+    <footer>
+        <div class="footer-inner">
+            <span>© <span id="year"></span> Zeeshan Ahmed Noonari</span>
+            <div><a href="https://github.com/ZeeshanAhmed215" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/zeeshanahmednoonari/" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
     </footer>
-</section>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-AOS.init();
-</script>
-
+    <script src="script.js"></script>
 </body>
-</html>0
-
-<script>
-    const text = ["Python Developer", "SQL Learner", "Problem Solver"];
-    let i = 0, j = 0, current = "", isDeleting = false;
-    
-    function type() {
-        current = text[i];
-        
-        if (isDeleting) {
-            j--;
-        } else {
-            j++;
-        }
-    
-        document.querySelector(".typing").innerHTML = current.substring(0, j);
-    
-        if (!isDeleting && j === current.length) {
-            isDeleting = true;
-            setTimeout(type, 1000);
-        } else if (isDeleting && j === 0) {
-            isDeleting = false;
-            i = (i + 1) % text.length;
-            setTimeout(type, 300);
-        } else {
-            setTimeout(type, isDeleting ? 50 : 100);
-        }
-    }
-    
-    type();
-    </script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-    AOS.init({
-        duration: 1000,
-        once: true
-    });
-    </script>
+</html>
